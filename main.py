@@ -52,7 +52,7 @@ class LoanApprovalSystem:
             print(f"{name}: {data}")
 
 
-def main():
+def algorithm():
     system = LoanApprovalSystem(model)
 
     print("Please provide the following information:")
@@ -69,6 +69,20 @@ def main():
 
     # approved users
     system.display_approved_users()
-
-
-main()
+def main():
+    run: bool = True
+    while  run == True:
+        try:
+            program = int(input("Do you want to continue? (1 for yes, 0 for no)"))
+            if program == 1:
+                algorithm()
+            elif program == 0:
+                run = False
+            else:
+                print(f"Provided number is neither 1 or 0: Provided number: {program}") 
+        except ValueError:
+            print("Provided data is not in correct format. Please provide 1 for running and 0 for stopping")
+        
+        
+if __name__ == "__main__":
+    main()
